@@ -1,0 +1,177 @@
+:root {
+  --bg:       #0a0a0a;
+  --surface:  #111111;
+  --card:     #181818;
+  --gold:     #c9a84c;
+  --gold-lt:  #e8c96a;
+  --gold-dk:  #a07830;
+  --danger:   #c0392b;
+  --muted:    #888888;
+  --text:     #f0ead6;
+  --border:   #2a2a2a;
+}
+
+* { box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
+
+body { margin: 0; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #000 0%, #1a1200 100%);
+  border-bottom: 2px solid var(--gold-dk);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+header h1 span { color: #fff; }
+
+/* ── Tabs ── */
+nav { display: flex; gap: 6px; flex-wrap: wrap; }
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 7px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.15s;
+  letter-spacing: 0.3px;
+}
+.tab-btn:hover  { border-color: var(--gold-dk); color: var(--gold-lt); }
+.tab-btn.active {
+  background: var(--gold-dk);
+  border-color: var(--gold);
+  color: #000;
+  font-weight: 600;
+}
+
+/* ── Layout ── */
+.tab-content {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+.hidden { display: none !important; }
+
+/* ── Form panels ── */
+.form-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold-dk);
+  padding: 18px;
+  border-radius: 6px;
+  align-self: start;
+}
+.form-panel h2 {
+  margin: 0 0 16px;
+  font-size: 1rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+label { display: block; margin-bottom: 10px; font-size: 0.85rem; color: var(--muted); }
+label span { display: block; margin-bottom: 3px; }
+
+input, textarea, select {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: #0d0d0d;
+  color: var(--text);
+  font-size: 0.88rem;
+  transition: border-color 0.15s;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--gold-dk);
+}
+select option { background: #111; }
+
+.buttons { display: flex; gap: 8px; justify-content: flex-end; margin-top: 14px; }
+
+/* ── Buttons ── */
+button {
+  background: var(--gold-dk);
+  border: 1px solid var(--gold);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: background 0.15s;
+}
+button:hover { background: var(--gold); }
+button.btn-secondary {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--muted);
+}
+button.btn-secondary:hover { border-color: var(--gold-dk); color: var(--gold-lt); }
+button.btn-danger { background: var(--danger); border-color: #e74c3c; color: #fff; }
+button.btn-danger:hover { background: #e74c3c; }
+button.btn-sm { padding: 5px 10px; font-size: 0.78rem; }
+
+/* ── List panels ── */
+.list-panel h2 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+/* ── Cards ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold-dk);
+  padding: 14px;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.15s;
+}
+.card:hover { border-color: var(--gold); }
+.card img { width: 100%; height: 130px; object-fit: cover; border-radius: 4px; margin-bottom: 4px; }
+.card h3 { margin: 0; font-size: 0.95rem; color: var(--text); }
+.card p  { color: var(--muted); margin: 0; font-size: 0.82rem; flex: 1; line-height: 1.4; }
+.card .actions { display: flex; gap: 6px; justify-content: flex-end; margin-top: 6px; }
+
+.tag {
+  display: inline-block;
+  background: #1a1200;
+  color: var(--gold);
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid var(--gold-dk);
+  font-weight: 600;
+}
+.tag-blue  { background: #001a2a; color: #5bb3e8; border-color: #2a6a9a; }
+.tag-green { background: #001a0a; color: #5be87a; border-color: #2a7a4a; }
+
+.empty { font-size: 0.85rem; color: var(--muted); padding: 12px 0; }

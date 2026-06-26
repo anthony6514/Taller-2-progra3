@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>GameStore - Panel de Gestión</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>🎮 <span>Game</span>Store</h1>
+  <nav>
+    <button class="tab-btn active" data-tab="videojuegos">🎮 Videojuegos</button>
+    <button class="tab-btn" data-tab="categorias">🗂 Categorías</button>
+    <button class="tab-btn" data-tab="clientes">👤 Clientes</button>
+    <button class="tab-btn" data-tab="perfiles">🪪 Perfiles</button>
+    <button class="tab-btn" data-tab="pedidos">📦 Pedidos</button>
+    <button class="tab-btn" data-tab="compras">🛒 Compras</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ══════════════ VIDEOJUEGOS ══════════════ -->
+  <div id="tab-videojuegos" class="tab-content">
+    <section class="form-panel">
+      <h2 id="vj-form-title">Nuevo Videojuego</h2>
+      <form id="vj-form">
+        <input type="hidden" id="vj-id">
+        <label><span>Nombre</span><input id="vj-nombre" required></label>
+        <label><span>Descripción</span><textarea id="vj-descripcion" rows="2" required></textarea></label>
+        <label><span>URL / Base64 Imagen</span><input id="vj-imageUrl"></label>
+        <label><span>Categoría</span>
+          <select id="vj-categoriaId" required>
+            <option value="">-- Selecciona --</option>
+          </select>
+        </label>
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="vj-cancel">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </section>
+    <section class="list-panel">
+      <h2>Videojuegos registrados</h2>
+      <div id="vj-list" class="grid"></div>
+    </section>
+  </div>
+
+  <!-- ══════════════ CATEGORÍAS ══════════════ -->
+  <div id="tab-categorias" class="tab-content hidden">
+    <section class="form-panel">
+      <h2 id="cat-form-title">Nueva Categoría</h2>
+      <form id="cat-form">
+        <input type="hidden" id="cat-id">
+        <label><span>Nombre</span><input id="cat-nombre" required></label>
+        <label><span>Descripción</span><textarea id="cat-descripcion" rows="2" required></textarea></label>
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="cat-cancel">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </section>
+    <section class="list-panel">
+      <h2>Categorías registradas</h2>
+      <div id="cat-list" class="grid"></div>
+    </section>
+  </div>
+
+  <!-- ══════════════ CLIENTES ══════════════ -->
+  <div id="tab-clientes" class="tab-content hidden">
+    <section class="form-panel">
+      <h2 id="cli-form-title">Nuevo Cliente</h2>
+      <form id="cli-form">
+        <input type="hidden" id="cli-id">
+        <label><span>Nombre</span><input id="cli-nombre" required></label>
+        <label><span>Email</span><input id="cli-email" type="email" required></label>
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="cli-cancel">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </section>
+    <section class="list-panel">
+      <h2>Clientes registrados</h2>
+      <div id="cli-list" class="grid"></div>
+    </section>
+  </div>
+
+  <!-- ══════════════ PERFILES ══════════════ -->
+  <div id="tab-perfiles" class="tab-content hidden">
+    <section class="form-panel">
+      <h2 id="prf-form-title">Nuevo Perfil</h2>
+      <form id="prf-form">
+        <input type="hidden" id="prf-id">
+        <label><span>Usuario</span><input id="prf-usuario" required></label>
+        <label><span>Descripción</span><textarea id="prf-descripcion" rows="2" required></textarea></label>
+        <label><span>Cliente</span>
+          <select id="prf-clienteId" required>
+            <option value="">-- Selecciona --</option>
+          </select>
+        </label>
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="prf-cancel">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </section>
+    <section class="list-panel">
+      <h2>Perfiles registrados</h2>
+      <div id="prf-list" class="grid"></div>
+    </section>
+  </div>
+
+  <!-- ══════════════ PEDIDOS ══════════════ -->
+  <div id="tab-pedidos" class="tab-content hidden">
+    <section class="form-panel">
+      <h2 id="ped-form-title">Nuevo Pedido</h2>
+      <form id="ped-form">
+        <input type="hidden" id="ped-id">
+        <label><span>Fecha</span><input id="ped-fecha" type="date" required></label>
+        <label><span>Estado</span>
+          <select id="ped-estado" required>
+            <option value="">-- Selecciona --</option>
+            <option value="PENDIENTE">Pendiente</option>
+            <option value="PROCESANDO">Procesando</option>
+            <option value="COMPLETADO">Completado</option>
+            <option value="CANCELADO">Cancelado</option>
+          </select>
+        </label>
+        <label><span>Cliente</span>
+          <select id="ped-clienteId" required>
+            <option value="">-- Selecciona --</option>
+          </select>
+        </label>
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="ped-cancel">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </section>
+    <section class="list-panel">
+      <h2>Pedidos registrados</h2>
+      <div id="ped-list" class="grid"></div>
+    </section>
+  </div>
+
+  <!-- ══════════════ COMPRAS ══════════════ -->
+  <div id="tab-compras" class="tab-content hidden">
+    <section class="form-panel">
+      <h2 id="com-form-title">Nueva Compra</h2>
+      <form id="com-form">
+        <input type="hidden" id="com-id">
+        <label><span>Cantidad</span><input id="com-cantidad" type="number" min="1" required></label>
+        <label><span>Cliente</span>
+          <select id="com-clienteId" required>
+            <option value="">-- Selecciona --</option>
+          </select>
+        </label>
+        <label><span>Pedido</span>
+          <select id="com-pedidoId" required>
+            <option value="">-- Selecciona --</option>
+          </select>
+        </label>
+        <label><span>Videojuego</span>
+          <select id="com-videojuegoId" required>
+            <option value="">-- Selecciona --</option>
+          </select>
+        </label>
+        <div class="buttons">
+          <button type="button" class="btn-secondary" id="com-cancel">Cancelar</button>
+          <button type="submit">Guardar</button>
+        </div>
+      </form>
+    </section>
+    <section class="list-panel">
+      <h2>Compras registradas</h2>
+      <div id="com-list" class="grid"></div>
+    </section>
+  </div>
+
+</main>
+<script src="app.js"></script>
+</body>
+</html>
